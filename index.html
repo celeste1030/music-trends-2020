@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>D3Times</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/d3Style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <center><h1>Analyzing Top 50 Songs of 2020</h1></center>
+        <br>
+        <center><h6>click on labels to change features</h6></center>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-9">
+        <div id="scatter">
+          <!-- We append our chart here. -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-9">
+        <div class="article">
+          <br>
+          <br>
+          <h3>Analysis of Health Risks based on Income, Age and Poverty</h3>
+          <p><strong>Healthcare:</strong> The percentage of people who lack healthcare is most affected by <strong>poverty</strong> showing that healthcare is a luxury that many Americans unfortunately cannot afford.  <strong>Median age</strong> is similar across all states and does not impact the percentage of people without healthcare. <strong>Median income</strong> also does not affect lack of healthcare.  Texas for example has the highest percentage of people who lack healthcare with a median income of 53,035. Other states such as West Virginia and Kentucky have lower median incomes and lower percentage of lacking healthcare.</p>
+
+          <p><strong>Smokers:</strong> The percentage of people who are smokers are affected by all three demographics.  States with lower <strong>median income</strong> have a higher percentage of smokers.  States with an older <strong>median age</strong> tend to have more smokers.  Increased level of <strong>poverty</strong> leads to a greater number of smokers.</p>
+
+          <p><strong>Obesity:</strong> Obesity is most affected by <strong>median income</strong>.  The lower the median income the higher the obesity rate per state.  <strong>Poverty</strong> levels also greatly affect obesity. States with a high poverty level have high obesity rate.  Age does not affect obesity since states with similar <strong>median age</strong> have different obesity levels.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <div id="footer">
+    <p>The Coding Boot Camp&copy;2021</p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+  <!-- <script type="text/javascript" src="assets/js/app.js2"></script> -->
+
+</body>
+
+</html>
