@@ -3,10 +3,10 @@ var svgWidth = 960;
 var svgHeight = 500;
 
 var margin = {
-    top: 20,
+    top: 30,
     right: 40,
-    bottom: 90,
-    left: 80
+    bottom: 100,
+    left: 100
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -25,19 +25,19 @@ var chosenXAxis = "liveness";
 var chosenYAxis = "energy";
 
 // functions used for updating x-scale and y-scale var upon click on axis label
-function xScale(cenData, chosenXAxis) {
+function xScale(songData, chosenXAxis) {
     // create scales
     var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(cenData, d => d[chosenXAxis]) * 0.8,
-        d3.max(cenData, d => d[chosenXAxis]) * 1.2
+        .domain([d3.min(songData, d => d[chosenXAxis]) * 0.5,
+        d3.max(songData, d => d[chosenXAxis]) * 1.2
         ])
         .range([0, width]);
     return xLinearScale;
 }
 
-function yScale(cenData, chosenYAxis) {
+function yScale(songData, chosenYAxis) {
     var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(cenData, d => d[chosenYAxis]) / 1.5, d3.max(cenData, d => d[chosenYAxis])])
+        .domain([d3.min(songData, d => d[chosenYAxis]) / 1.5, d3.max(songData, d => d[chosenYAxis])])
         .range([height, 0]);
     return yLinearScale;
 }
@@ -97,7 +97,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
         xlabel = "Acousticness:";
 
     if (chosenYAxis === "energy") {
-        ylabel = "% Energy:";
+        ylabel = "Energy:";
     }
     else if (chosenYAxis === "valence") {
         ylabel = "Valence:";
@@ -128,9 +128,9 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
 ////read csv
 
-d3.csv("assets/data/spotifytoptracks.csv").then(function (cenData) {
-    console.log(cenData);
-    cenData.forEach(data => {
+d3.csv("assets/data/spotifytoptracks.csv").then(function (songData) {
+    console.log(songData);
+    songData.forEach(data => {
         data.energy = +data.energy;
         data.danceability = +data.danceability;
         data.valence = +data.valence;
@@ -140,11 +140,11 @@ d3.csv("assets/data/spotifytoptracks.csv").then(function (cenData) {
 
     });
     // xLinearScale function above csv import
-    var xLinearScale = xScale(cenData, chosenXAxis);
+    var xLinearScale = xScale(songData, chosenXAxis);
 
     // Create y scale function
     var yLinearScale = d3.scaleLinear()
-        .domain([0, d3.max(cenData, d => d.energy)])
+        .domain([0, d3.max(songData, d => d.energy)])
         .range([height, 0]);
 
     // Create initial axis functions
@@ -169,7 +169,7 @@ d3.csv("assets/data/spotifytoptracks.csv").then(function (cenData) {
 
 
     var circlesGroup = chartGroup.selectAll("circle")
-        .data(cenData)
+        .data(songData)
         .enter()
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
@@ -178,7 +178,7 @@ d3.csv("assets/data/spotifytoptracks.csv").then(function (cenData) {
         .attr("r", 15);
 
     var textLabel = chartGroup.selectAll("stateText")
-        .data(cenData)
+        .data(songData)
         .enter()
         .append("text")
         .classed("stateText", true)
@@ -264,7 +264,7 @@ d3.csv("assets/data/spotifytoptracks.csv").then(function (cenData) {
 
                 // functions here found above csv import
                 // updates x scale for new data
-                xLinearScale = xScale(cenData, chosenXAxis);
+                xLinearScale = xScale(songData, chosenXAxis);
 
                 // updates x axis with transition
                 xAxis = renderXaxes(xLinearScale, xAxis);
@@ -322,7 +322,7 @@ d3.csv("assets/data/spotifytoptracks.csv").then(function (cenData) {
                 console.log(chosenYAxis)
 
                 // updates y scale for new data
-                yLinearScale = yScale(cenData, chosenYAxis);
+                yLinearScale = yScale(songData, chosenYAxis);
 
                 // updates y axis 
                 yAxis = renderYaxes(yLinearScale, yAxis);
