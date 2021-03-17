@@ -174,14 +174,14 @@ d3.csv("assets/data/spotifytoptracks.csv").then(function (songData) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
-        .classed("stateCircle", true)
+        .classed("songCircle", true)
         .attr("r", 15);
 
-    var textLabel = chartGroup.selectAll("stateText")
+    var textLabel = chartGroup.selectAll("songText")
         .data(songData)
         .enter()
         .append("text")
-        .classed("stateText", true)
+        .classed("songText", true)
         .attr("x", d => xLinearScale(d[chosenXAxis]))
         .attr("y", d => yLinearScale(d[chosenYAxis]))
         .text(d => d.abbr)
