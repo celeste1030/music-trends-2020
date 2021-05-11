@@ -11,7 +11,7 @@ Energy - The energy of a song - the higher the value, the more energetic the son
 
 Valence - The higher the value, the more positive mood for the song.
 
-Tempo: The pace of a piece of music is known as its tempo. Tempo can be measured by beats per minute, or bpm
+Tempo - The pace of a piece of music is known as its tempo. Tempo can be measured by beats per minute, or bpm
 
 Liveness - The higher the value, the more likely the song is a live recording.
 
